@@ -6,28 +6,28 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, Button, TextInput} from 'react-native';
 
 const App = () => {
-  const [outputText, setOutputText] = useState('First React App');
   return (
     <View style={styles.container}>
-      <Text>{outputText}</Text>
-      <Button
-        title="change text"
-        onPress={() => setOutputText('Text changed')}
-      />
+      <View>
+        <TextInput placeholder="Course Goals" style={styles.textInput} />
+        <Button title="ADD" />
+      </View>
+      <View />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
+  },
+  textInput: {
+    borderColor: 'black',
+    borderWidth: 1,
   },
 });
 
