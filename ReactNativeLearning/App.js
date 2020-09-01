@@ -7,7 +7,14 @@
  */
 
 import React, {useState} from 'react';
-import {StyleSheet, View, Button, TextInput, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Button,
+  TextInput,
+  Text,
+  ScrollView,
+} from 'react-native';
 
 const App = () => {
   const [enteredGoal, setEnteredGoal] = useState('');
@@ -32,13 +39,13 @@ const App = () => {
         />
         <Button title="ADD" onPress={addGoalHandler} />
       </View>
-      <View>
+      <ScrollView>
         {courseGoals.map((goals, index) => (
           <View key={index} style={styles.listItems}>
             <Text>{goals}</Text>
           </View>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };
