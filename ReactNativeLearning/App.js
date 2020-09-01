@@ -6,17 +6,37 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {StyleSheet, View, Button, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, Button, TextInput, Text} from 'react-native';
 
 const App = () => {
+  const [enteredGoal, setEnteredGoal] = useState('');
+  const [courseGoals, setCourseGoals] = useState([]);
+
+  const goalInputHandler = (enteredText) => {
+    setEnteredGoal(enteredText);
+  };
+
+  const addGoalHandler = () => {
+    setCourseGoals((currentGoals) => [...currentGoals, enteredGoal]);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TextInput placeholder="Course Goals" style={styles.textInput} />
-        <Button title="ADD" />
+        <TextInput
+          placeholder="Course Goals"
+          style={styles.textInput}
+          value={enteredGoal}
+          onChangeText={goalInputHandler}
+        />
+        <Button title="ADD" onPress={addGoalHandler} />
       </View>
-      <View />
+      <View>
+        {courseGoals.map((goals, index) => (
+          <Text key={index}>{goals}</Text>
+        ))}
+      </View>
     </View>
   );
 };
