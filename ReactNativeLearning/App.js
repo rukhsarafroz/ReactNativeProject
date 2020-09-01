@@ -6,13 +6,18 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, Text, Button} from 'react-native';
 
 const App = () => {
+  const [outputText, setOutputText] = useState('First React App');
   return (
     <View style={styles.container}>
-      <Text>First React app</Text>
+      <Text>{outputText}</Text>
+      <Button
+        title="change text"
+        onPress={() => setOutputText('Text changed')}
+      />
     </View>
   );
 };
