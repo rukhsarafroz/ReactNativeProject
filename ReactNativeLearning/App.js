@@ -12,7 +12,7 @@ import {StyleSheet, View, Button, TextInput} from 'react-native';
 const App = () => {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.header}>
         <TextInput placeholder="Course Goals" style={styles.textInput} />
         <Button title="ADD" />
       </View>
@@ -25,9 +25,15 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   textInput: {
     borderColor: 'black',
     borderWidth: 1,
+    width: '80%',
   },
 });
 
