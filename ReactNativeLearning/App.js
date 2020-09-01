@@ -34,7 +34,9 @@ const App = () => {
       </View>
       <View>
         {courseGoals.map((goals, index) => (
-          <Text key={index}>{goals}</Text>
+          <View key={index} style={styles.listItems}>
+            <Text>{goals}</Text>
+          </View>
         ))}
       </View>
     </View>
@@ -54,6 +56,13 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     width: '80%',
+  },
+  listItems: {
+    padding: 10,
+    marginVertical: 10,
+    backgroundColor: '#ccc',
+    borderColor: 'black',
+    borderWidth: 1,
   },
 });
 
